@@ -1,4 +1,5 @@
 # appmusic
+Music app creating with Deezer API and Vue.js
 
 ## Project setup
 ```
