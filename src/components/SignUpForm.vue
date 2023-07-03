@@ -36,7 +36,7 @@ export default {
       <input type="text" id="username" v-model="username">
       <label for="password">Password:</label>
       <input type="password" id="password" v-model="password">
-      <button type="submit">SignUp'</button>
+      <button type="submit">SignUp</button>
     </form>
   </div>
 </template>

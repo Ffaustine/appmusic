@@ -28,34 +28,54 @@ export default {
         this.errorMessage = 'Wrong credentials. Please try again!';
       }
     },
-  },
 
-  mounted() {
-    // Vérifier si l'utilisateur est déjà authentifié
-    // Si oui, rediriger vers la page de classement musical
-    if (this.isAuthenticated) {
+    signup() {
+      // Ajouter l'utilisateur à la liste des utilisateurs inscrits
+      this.registeredUsers.push({
+        username: this.username,
+        password: this.password,
+        email: this.email,
+      }),
+
+      // Réinitialiser les champs du formulaire
+      this.username = '';
+      this.password = '';
+      this.email = '';
+      this.isAuthenticated = true;
+      // Rediriger vers la page de classement musical
       this.$router.push('/classement');
-    } else {
-      // Afficher le formulaire d'inscription
-      this.showSignupForm = true;
-    }
-  },
+    },
+
+
+    mounted() {
+      // Vérifier si l'utilisateur est déjà authentifié
+      // Si oui, rediriger vers la page de classement musical
+      if (this.isAuthenticated) {
+        this.$router.push('/classement');
+      }
+    },
+  }
 };
 </script>
 
 <template>
   <div>
     <h1>LogIn</h1>
-    <form @submit.prevent="login">
+    <form v-if="!showSignUp" @submit.prevent="login">
       <label for="username">Username:</label>
       <input type="text" id="username" v-model="username">
       <label for="password">Password:</label>
       <input type="password" id="password" v-model="password">
       <button type="submit">LogIn</button>
+      <button type="button" @click="showSignUp = true">Sign Up</button>
     </form>
     <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-    <div v-if="showSignupForm">
-      <SignUpForm />
-    </div>
+    <SignUpForm v-if="showSignUp" />
   </div>
 </template>
+
+<style>
+  .form {
+
+  }
+</style>
