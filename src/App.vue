@@ -1,22 +1,12 @@
-<template>
-  <div>
-    <h1>Welcome on App Music</h1>
-    <LoginForm/>
-  </div>
-</template>
-
-
-<script>
-import LoginForm from './components/LoginForm.vue'
-
-
-export default {
-  name: 'App',
-  components: {
-    LoginForm
-  }
-}
+<script setup>
+  import { RouterView } from 'vue-router';
 </script>
+
+<template>
+  <component :is="this.$route.meta.layout || 'div'">
+    <RouterView />
+  </component>
+</template>
 
 <style>
 #app {
