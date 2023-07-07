@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import LoginForm from '../views/LoginForm.vue';
-import HomeView from '../views/HomeView.vue';
+import LoginForm from '../pages/LoginForm.vue';
+import HomeView from '../pages/HomeView.vue';
 
 
 const routes = [

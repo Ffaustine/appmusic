@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <component :is="this.$route.meta.layout || 'div'">
-    <RouterView />
-  </component>
+  <router-view />
 </template>
 
 <style>
